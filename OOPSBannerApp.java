@@ -1,5 +1,17 @@
-public class Banner {
+/**
+ * OOPSBannerApp
+ * UC2: Print OOPS in Banner Format
+ */
+public class OOPSBannerApp {
+
     public static void main(String[] args) {
-        System.out.println("OOPS Banner - UC1 Feature");
+
+        System.out.println("  *****  " + "  *****  " + " ******  " + " *****   ");
+        System.out.println(" *     * " + " *     * " + " *     * " + " *       ");
+        System.out.println(" *     * " + " *     * " + " *     * " + " *       ");
+        System.out.println(" *     * " + " *     * " + " ******  " + "  *****  ");
+        System.out.println(" *     * " + " *     * " + " *       " + "       * ");
+        System.out.println(" *     * " + " *     * " + " *       " + "       * ");
+        System.out.println("  *****  " + "  *****  " + " *       " + " *****   ");
     }
 }
