@@ -1,51 +1,60 @@
 /**
  * OOPSBannerApp
- * UC3: Render OOPS Banner using String.join()
+ * UC4: Render OOPS Banner using String Array and Loop
  */
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        System.out.println(String.join(" ",
+        // Create array to store banner lines
+        String[] banner = new String[7];
+
+        // Fill array using String.join()
+        banner[0] = String.join(" ",
                 "  *****  ",
                 "  *****  ",
                 " ******  ",
-                " *****   "));
+                " *****   ");
 
-        System.out.println(String.join(" ",
+        banner[1] = String.join(" ",
                 " *     * ",
                 " *     * ",
                 " *     * ",
-                " *       "));
+                " *       ");
 
-        System.out.println(String.join(" ",
+        banner[2] = String.join(" ",
                 " *     * ",
                 " *     * ",
                 " *     * ",
-                " *       "));
+                " *       ");
 
-        System.out.println(String.join(" ",
+        banner[3] = String.join(" ",
                 " *     * ",
                 " *     * ",
                 " ******  ",
-                "  *****  "));
+                "  *****  ");
 
-        System.out.println(String.join(" ",
+        banner[4] = String.join(" ",
                 " *     * ",
                 " *     * ",
                 " *       ",
-                "       * "));
+                "       * ");
 
-        System.out.println(String.join(" ",
+        banner[5] = String.join(" ",
                 " *     * ",
                 " *     * ",
                 " *       ",
-                "       * "));
+                "       * ");
 
-        System.out.println(String.join(" ",
+        banner[6] = String.join(" ",
                 "  *****  ",
                 "  *****  ",
                 " *       ",
-                " *****   "));
+                " *****   ");
+
+        // Print using loop
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
