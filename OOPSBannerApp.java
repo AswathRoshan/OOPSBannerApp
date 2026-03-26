@@ -1,60 +1,34 @@
 /**
  * OOPSBannerApp
- * UC4: Render OOPS Banner using String Array and Loop
+ * UC5: Modular Banner Rendering using Methods
  */
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
+        printBanner();
+    }
 
-        // Create array to store banner lines
+    // Method to print banner
+    public static void printBanner() {
+
         String[] banner = new String[7];
 
-        // Fill array using String.join()
-        banner[0] = String.join(" ",
-                "  *****  ",
-                "  *****  ",
-                " ******  ",
-                " *****   ");
+        banner[0] = buildLine("  *****  ", "  *****  ", " ******  ", " *****   ");
+        banner[1] = buildLine(" *     * ", " *     * ", " *     * ", " *       ");
+        banner[2] = buildLine(" *     * ", " *     * ", " *     * ", " *       ");
+        banner[3] = buildLine(" *     * ", " *     * ", " ******  ", "  *****  ");
+        banner[4] = buildLine(" *     * ", " *     * ", " *       ", "       * ");
+        banner[5] = buildLine(" *     * ", " *     * ", " *       ", "       * ");
+        banner[6] = buildLine("  *****  ", "  *****  ", " *       ", " *****   ");
 
-        banner[1] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *     * ",
-                " *       ");
-
-        banner[2] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *     * ",
-                " *       ");
-
-        banner[3] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " ******  ",
-                "  *****  ");
-
-        banner[4] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *       ",
-                "       * ");
-
-        banner[5] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *       ",
-                "       * ");
-
-        banner[6] = String.join(" ",
-                "  *****  ",
-                "  *****  ",
-                " *       ",
-                " *****   ");
-
-        // Print using loop
+        // Loop to print
         for (String line : banner) {
             System.out.println(line);
         }
+    }
+
+    // Reusable method to build each line
+    public static String buildLine(String a, String b, String c, String d) {
+        return String.join(" ", a, b, c, d);
     }
 }
