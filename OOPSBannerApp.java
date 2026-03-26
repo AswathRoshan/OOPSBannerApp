@@ -1,58 +1,95 @@
 /**
  * OOPSBannerApp
- * UC4: Render OOPS Banner using String Array and Loop
+ * UC7: Store Character Pattern in a Class
  */
 public class OOPSBannerApp {
 
+    /**
+     * Inner static class to store character and its pattern
+     */
+    static class CharacterPattern {
+        private char character;
+        private String[] pattern;
+
+        public CharacterPattern(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    /**
+     * Utility method to get pattern for a character
+     */
+    public static String[] getPattern(char ch, CharacterPattern[] patterns) {
+        for (CharacterPattern cp : patterns) {
+            if (cp.getCharacter() == ch) {
+                return cp.getPattern();
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
 
-        // Create array
+        // Define patterns
+        CharacterPattern[] patterns = new CharacterPattern[]{
+
+                new CharacterPattern('O', new String[]{
+                        "  *****  ",
+                        " *     * ",
+                        " *     * ",
+                        " *     * ",
+                        " *     * ",
+                        " *     * ",
+                        "  *****  "
+                }),
+
+                new CharacterPattern('P', new String[]{
+                        " ******  ",
+                        " *     * ",
+                        " *     * ",
+                        " ******  ",
+                        " *       ",
+                        " *       ",
+                        " *       "
+                }),
+
+                new CharacterPattern('S', new String[]{
+                        " *****   ",
+                        " *       ",
+                        " *       ",
+                        "  *****  ",
+                        "       * ",
+                        "       * ",
+                        " *****   "
+                })
+        };
+
+        String word = "OOPS";
+
         String[] banner = new String[7];
 
-        // Store each line using String.join()
-        banner[0] = String.join(" ",
-                "  *****  ",
-                "  *****  ",
-                " ******  ",
-                " *****   ");
+        // Build banner
+        for (int i = 0; i < 7; i++) {
+            StringBuilder line = new StringBuilder();
 
-        banner[1] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *     * ",
-                " *       ");
+            for (char ch : word.toCharArray()) {
+                String[] pattern = getPattern(ch, patterns);
+                line.append(pattern[i]).append(" ");
+            }
 
-        banner[2] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *     * ",
-                " *       ");
+            banner[i] = line.toString();
+        }
 
-        banner[3] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " ******  ",
-                "  *****  ");
-
-        banner[4] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *       ",
-                "       * ");
-
-        banner[5] = String.join(" ",
-                " *     * ",
-                " *     * ",
-                " *       ",
-                "       * ");
-
-        banner[6] = String.join(" ",
-                "  *****  ",
-                "  *****  ",
-                " *       ",
-                " *****   ");
-
-        // Print using loop
+        // Print banner
         for (String line : banner) {
             System.out.println(line);
         }
